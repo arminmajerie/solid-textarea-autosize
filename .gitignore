@@ -1,6 +1,27 @@
-node_modules
-dist
-gitignore
+node_modules/
+dist/
+coverage/
+.nyc_output/
+.cache/
+.vite/
+*.tsbuildinfo
+*.tgz
 
-# VSC Settings
-.vscode/settings.json
+.env
+.env.*
+!.env.example
+!.env.*.example
+.npmrc
+!.npmrc.example
+
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
+*.code-workspace
+*.log
+*-debug.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
