@@ -26,7 +26,7 @@ npm install solid-textarea-autosize@npm:@arminmajerie/solid-textarea-autosize
 ```
 
 ```tsx
-import TextareaAutosize from "solid-textarea-autosize";
+import TextareaAutosize from "@arminmajerie/solid-textarea-autosize";
 ```
 
 ## Usage

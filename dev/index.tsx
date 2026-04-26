@@ -1,7 +1,7 @@
 import { createEffect, createSignal, For } from "solid-js";
 import { render } from "solid-js/web";
 
-import TextareaAutosize from "solid-textarea-autosize";
+import TextareaAutosize from "@arminmajerie/solid-textarea-autosize";
 
 const range = (n: number): number[] => Array.from({ length: n }, (_, i) => i);
 
@@ -76,6 +76,50 @@ const MaxRows = () => {
 `}
       </pre>
       <TextareaAutosize maxRows={5} value="Just a single line..." />
+    </div>
+  );
+};
+
+const SetRows = () => {
+  const [minRows, setMinRows] = createSignal(2);
+  const [maxRows, setMaxRows] = createSignal(5);
+
+  createEffect(() => {
+    if (maxRows() < minRows()) {
+      setMaxRows(minRows());
+    }
+  });
+
+  const rowOptions = range(8).map((index) => index + 1);
+
+  return (
+    <div>
+      <h2>{"Change minRows and maxRows"}</h2>
+      <pre>
+        {`
+  <TextareaAutosize
+    minRows={minRows()}
+    maxRows={maxRows()}
+    value="One\\nTwo\\nThree"
+    />
+`}
+      </pre>
+      <div>
+        <label>
+          {"Min rows "}
+          <select value={String(minRows())} onChange={(ev) => setMinRows(Number(ev.currentTarget.value))}>
+            <For each={rowOptions}>{(rows) => <option value={rows}>{rows}</option>}</For>
+          </select>
+        </label>
+        {" "}
+        <label>
+          {"Max rows "}
+          <select value={String(maxRows())} onChange={(ev) => setMaxRows(Number(ev.currentTarget.value))}>
+            <For each={rowOptions}>{(rows) => <option value={rows}>{rows}</option>}</For>
+          </select>
+        </label>
+      </div>
+      <TextareaAutosize minRows={minRows()} maxRows={maxRows()} value={"One\nTwo\nThree"} />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 {
   "name": "@arminmajerie/solid-textarea-autosize",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Autosizing textarea component for Solid with modern package exports and TypeScript declarations.",
   "license": "MIT",
   "author": "arminmajerie (https://github.com/arminmajerie)",
@@ -32,39 +32,30 @@
     ".": {
       "types": "./dist/types/index.d.ts",
       "solid": "./dist/source/index.jsx",
-      "import": "./dist/esm/index.js",
       "browser": {
         "import": "./dist/esm/index.js",
         "require": "./dist/cjs/index.js"
       },
-      "require": "./dist/cjs/index.js",
-      "node": "./dist/cjs/index.js",
-      "default": "./dist/esm/index.js"
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
     }
-  },
-  "scripts": {
-    "dev": "vite serve dev",
-    "test": "npm run typecheck",
-    "build": "rollup -c",
-    "pack:check": "npm pack --dry-run",
-    "prepublishOnly": "npm run typecheck && npm run build",
-    "publish:public": "npm publish --access public",
-    "format": "prettier -w \"src/**/*.{js,ts,json,css,tsx,jsx}\" \"dev/**/*.{js,ts,json,css,tsx,jsx}\"",
-    "update-deps": "taze -w && npm install",
-    "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
     "solid-js": ">=1.0.0"
   },
   "devDependencies": {
-    "prettier": "2.7.1",
-    "rollup": "^2.77.2",
-    "rollup-preset-solid": "^1.4.0",
-    "solid-js": "^1.4.8",
-    "taze": "^0.7.6",
-    "typescript": "^4.7.4",
-    "vite": "^3.0.4",
-    "vite-plugin-solid": "^2.3.0"
+    "@babel/core": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "@rollup/plugin-babel": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "babel-preset-solid": "^1.9.12",
+    "prettier": "^3.8.3",
+    "rollup": "^4.60.2",
+    "solid-js": "^1.9.12",
+    "taze": "^19.11.0",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.2",
+    "vite-plugin-solid": "^2.11.12"
   },
   "engines": {
     "node": ">=18"
@@ -80,5 +71,17 @@
     "textarea-autosize",
     "autogrow"
   ],
-  "packageManager": "npm@10.8.2"
+  "packageManager": "npm@10.8.2",
+  "scripts": {
+    "publish:dry-run": "npm publish --dry-run --access public",
+    "publish:public": "npm publish --access public",
+    "prepublishOnly": "npm run typecheck && npm run build",
+    "dev": "vite serve dev",
+    "test": "npm run typecheck",
+    "build": "tsc -p tsconfig.build.json && rollup -c",
+    "pack:check": "npm pack --dry-run",
+    "format": "prettier -w \"src/**/*.{js,ts,json,css,tsx,jsx}\" \"dev/**/*.{js,ts,json,css,tsx,jsx}\"",
+    "update-deps": "taze -w && npm install",
+    "typecheck": "tsc --noEmit"
+  }
 }
