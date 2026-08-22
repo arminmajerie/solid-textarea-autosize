@@ -49,6 +49,7 @@
     "@rollup/plugin-babel": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "babel-preset-solid": "^1.9.12",
+    "nanoid": "3.3.18",
     "prettier": "^3.8.3",
     "rollup": "^4.60.2",
     "solid-js": "^1.9.12",
@@ -71,7 +72,7 @@
     "textarea-autosize",
     "autogrow"
   ],
-  "packageManager": "npm@10.8.2",
+  "packageManager": "npm@11.17.0",
   "scripts": {
     "publish:dry-run": "npm publish --dry-run --access public",
     "publish:public": "npm publish --access public",
@@ -82,6 +83,7 @@
     "pack:check": "npm pack --dry-run",
     "format": "prettier -w \"src/**/*.{js,ts,json,css,tsx,jsx}\" \"dev/**/*.{js,ts,json,css,tsx,jsx}\"",
     "update-deps": "taze -w && npm install",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "audit:check": "npm audit --audit-level=low --registry=https://registry.npmjs.org/"
   }
 }
