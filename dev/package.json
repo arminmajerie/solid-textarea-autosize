@@ -16,6 +16,6 @@
   },
   "dependencies": {
     "@arminmajerie/solid-textarea-autosize": "file:..",
-    "solid-js": "^1.9.12"
+    "solid-js": "1.9.15"
   }
 }
