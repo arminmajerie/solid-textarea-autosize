@@ -17,5 +17,12 @@
   "dependencies": {
     "@arminmajerie/solid-textarea-autosize": "file:..",
     "solid-js": "1.9.15"
+  },
+  "allowScripts": {
+    "esbuild": true,
+    "@parcel/watcher": true,
+    "@swc/core": true,
+    "esbuild@0.25.12": true,
+    "esbuild@0.28.1": true
   }
 }

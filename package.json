@@ -88,5 +88,12 @@
     "update-deps": "taze -w && npm install",
     "typecheck": "tsc --noEmit",
     "audit:check": "npm audit --audit-level=low --registry=https://registry.npmjs.org/"
+  },
+  "allowScripts": {
+    "esbuild": true,
+    "@parcel/watcher": true,
+    "@swc/core": true,
+    "esbuild@0.25.12": true,
+    "esbuild@0.28.1": true
   }
 }
